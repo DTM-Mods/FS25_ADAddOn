@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="113">
+    <author>PropaineX</author>
+    <version>1.6.0.0</version>
+    <title>
+        <en>ADAddOn (AutoDrive Add-On)</en>
+    </title>
+    <description>
+        <en><![CDATA[Add-on for AutoDrive (FS25_AutoDrive required).
+
+Adds a green bar with an ON/OFF button and a mode menu on top of the AutoDrive window. Use AutoDrive's "Pickup and Deliver" mode as usual: the 1st target is where it loads, the 2nd target is where it delivers. Pick a mode, switch the button ON:
+
+- Fill Robot $$$: set the 2nd target at a barn with a feeding robot. It fills every bin of the robot, picking the feed and where to get it, exactly what each bin still takes.
+- Milk Transport: moves all milk types from the barn (cow, buffalo, goat...) to the 2nd target, one type per load.
+- Bale Collection: with a Courseplay bale collector, AutoDrive takes each full load to the 2nd target, drives back to the field (1st target) and Courseplay carries on until the field is clear.
+- Top It Off: moves the selected fill type from the loading point to the tip until the tip is full. Each load is only what the tip still takes, so it never overfills. If the loading point runs out it says "Out of ...". If the tip gets full from somewhere else before the truck tips, it says "Overfill detected."
+
+When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.]]></en>
+    </description>
+    <iconFilename>icon_ADAddOn.dds</iconFilename>
+    <multiplayer supported="true"/>
+
+    <dependencies>
+        <dependency>FS25_AutoDrive</dependency>
+    </dependencies>
+
+    <extraSourceFiles>
+        <sourceFile filename="scripts/ADAddOnRegister.lua"/>
+        <sourceFile filename="scripts/ADAddOn.lua"/>
+    </extraSourceFiles>
+</modDesc>
