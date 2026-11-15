@@ -37,7 +37,7 @@ ADAddOn.BUTTON_ASPECT = 256 / 208
 ADAddOn.MESSAGE_TIME = 10000
 -- the mode menu on the bar, in the order of ADAddOnSpec.MODE_*
 -- (indexed by mode number; the menu shows them in MODE_ORDER)
-ADAddOn.MODE_NAMES = {"Fill Robot $$$", "Milk Transport", "Bale Collection", "Top It Off", "Fill Robot - In Stock Only", "Repair/Refill"}
+ADAddOn.MODE_NAMES = {"Fill Robot $$$", "Milk Transport", "Bale Collection", "Top It Off", "Fill Robot - In Stock", "Refuel/Repair"}
 ADAddOn.MODE_ORDER = {5, 1, 2, 3, 4, 6}
 -- at the destination with load left and no room left for this long: stop instead of waiting forever
 ADAddOn.FULL_WAIT = 5000
@@ -1016,7 +1016,7 @@ function ADAddOn.onSwitched(vehicle, isOn)
         if ADAddOn.repairRefillReady then
             ADAddOn.startRepairRefill(vehicle)
         else
-            ADAddOn.sendMessage(vehicle, true, "Repair/Refill is not available with this AutoDrive version.")
+            ADAddOn.sendMessage(vehicle, true, "Refuel/Repair is not available with this AutoDrive version.")
             vehicle:setADAddOn(false)
         end
     end
@@ -2617,9 +2617,9 @@ function ADAddOn.startRepairRefill(vehicle)
         return
     end
 
-    -- the closer stop first
+    -- refuel first, then repair (user's rule 2026-11-15)
     table.sort(steps, function(a, b)
-        return distanceTo(vehicle, a.site.wayPointId) < distanceTo(vehicle, b.site.wayPointId)
+        return a.kind == "refuel" and b.kind ~= "refuel"
     end)
     for i, step in ipairs(steps) do
         ADAddOn.log(vehicle, "repair/refill stop %d: %s at '%s' (%.0f m)%s", i, step.kind, tostring(step.site.name),
@@ -2689,7 +2689,7 @@ function ADAddOn.endRepairRefill(vehicle, done, text)
     if text ~= nil then
         ADAddOn.sendMessage(vehicle, not done, text)
     elseif done then
-        ADAddOn.sendMessage(vehicle, false, "repair/refill done.")
+        ADAddOn.sendMessage(vehicle, false, "refuel/repair done.")
     end
     if ADAddOn.isOn(vehicle) then
         vehicle:setADAddOn(false)
@@ -2717,7 +2717,7 @@ function ADAddOn.updateRepairRefill()
             and g_currentMission.time - run.stepStarted > ADAddOn.RR_STOP_WAIT then
             -- AutoDrive stopped without finishing the stop (no path, stopped by the player)
             local step = run.steps[run.index]
-            ADAddOn.endRepairRefill(vehicle, false, string.format("repair/refill stopped: AutoDrive did not get to the %s site.",
+            ADAddOn.endRepairRefill(vehicle, false, string.format("refuel/repair stopped: AutoDrive did not get to the %s site.",
                 step ~= nil and step.kind or "?"))
         end
     end
