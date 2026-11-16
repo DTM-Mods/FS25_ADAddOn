@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <b>More jobs for AutoDrive: feeding robots, milk, bales, topping off, refuel and repair.</b><br>
+  <b>More jobs for AutoDrive Overdrive: feeding robots, milk, bales, topping off, refuel and repair.</b><br>
   <sub>by PropaineX</sub>
 </p>
 
@@ -24,7 +24,7 @@
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/features.jpg" alt="Features" width="100%">
 </p>
 
-An add-on for [AutoDrive](https://github.com/DTM-Mods/FS25_AutoDrive) (FS25_AutoDrive is required). It puts a green bar with an **ON/OFF button** and a **mode menu** on top of the AutoDrive window.
+An add-on for **[AutoDrive Overdrive](https://github.com/DTM-Mods/FS25_AutoDrive)**, the DTM Mods version of AutoDrive. **It needs AutoDrive Overdrive; the original AutoDrive from ModHub won't do.** It puts a green bar with an **ON/OFF button** and a **mode menu** on top of the AutoDrive window.
 
 Use AutoDrive's **Pickup and Deliver** mode as usual: the 1st target is where it loads, the 2nd target is where it delivers. Pick a mode and switch the button ON.
 
@@ -41,7 +41,7 @@ When a job ends, finished or stopped with a message, AutoDrive stops and the but
 
 ### Requirements
 
-- [AutoDrive](https://github.com/DTM-Mods/FS25_AutoDrive)
+- **[AutoDrive Overdrive](https://github.com/DTM-Mods/FS25_AutoDrive)** (`FS25_AutoDrive.zip` from its latest release); the original AutoDrive won't do
 - [Courseplay](https://github.com/DTM-Mods/FS25_Courseplay), for Bale Collection only
 
 ### Multiplayer
