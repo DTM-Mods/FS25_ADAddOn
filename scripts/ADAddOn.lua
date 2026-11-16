@@ -72,6 +72,16 @@ function ADAddOn:loadMap(name)
         return
     end
 
+    -- add-on button on: ignore AutoDrive's best price unloading setting, whatever it says
+    if AD.ADBestPrice ~= nil and AD.ADBestPrice.getMode ~= nil then
+        AD.ADBestPrice.getMode = Utils.overwrittenFunction(AD.ADBestPrice.getMode, function(vehicle, superFunc)
+            if ADAddOn.isOn(vehicle) then
+                return AD.ADBestPrice.OFF
+            end
+            return superFunc(vehicle)
+        end)
+    end
+
     -- HUD bar
     AD.AutoDriveHud.drawHud = Utils.appendedFunction(AD.AutoDriveHud.drawHud, ADAddOn.drawHud)
     AD.AutoDriveHud.mouseEventOnHudElements = Utils.overwrittenFunction(AD.AutoDriveHud.mouseEventOnHudElements, ADAddOn.mouseEventOnHudElements)
