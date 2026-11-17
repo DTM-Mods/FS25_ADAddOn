@@ -965,16 +965,17 @@ function ADAddOn.nameOf(object)
     -- (not ipairs over {source, target, object}: it stops at the first nil)
     for _, key in ipairs({"source", "target", "self"}) do
         local o = key == "self" and object or object[key]
-        if o ~= nil then
-            if o.getName ~= nil then
-                local ok, name = pcall(o.getName, o)
-                if ok and name ~= nil and name ~= "" then
+        if type(o) == "table" then
+            if type(o.getName) == "function" then
+                local name = o:getName()
+                if name ~= nil and name ~= "" then
                     return tostring(name)
                 end
             end
-            if o.owningPlaceable ~= nil and o.owningPlaceable.getName ~= nil then
-                local ok, name = pcall(o.owningPlaceable.getName, o.owningPlaceable)
-                if ok and name ~= nil then
+            local placeable = o.owningPlaceable
+            if type(placeable) == "table" and type(placeable.getName) == "function" then
+                local name = placeable:getName()
+                if name ~= nil then
                     return tostring(name)
                 end
             end
@@ -1792,12 +1793,27 @@ local function getStationPriceScale(station, fillType)
     return 1
 end
 
+-- true when the station has a price entry for this fill type (getEffectiveFillTypePrice indexes these
+-- tables without a nil check, so it is only asked for fill types the station really sells)
+local function stationHasPriceFor(station, fillType)
+    if type(fillType) ~= "number" then
+        return false
+    end
+    for _, key in ipairs({"fillTypePrices", "fillTypePricesScale"}) do
+        local prices = station[key]
+        if type(prices) == "table" and prices[fillType] ~= nil then
+            return true
+        end
+    end
+    return false
+end
+
 -- price per liter the buying station really charges, and where it came from (for the log); nil = unknown
 local function getStationPrice(trigger, fillType)
     local station = trigger ~= nil and trigger.source or nil
-    if station ~= nil and station.getEffectiveFillTypePrice ~= nil then
-        local ok, price = pcall(station.getEffectiveFillTypePrice, station, fillType)
-        if ok and type(price) == "number" and price > 0 then
+    if type(station) == "table" and type(station.getEffectiveFillTypePrice) == "function" and stationHasPriceFor(station, fillType) then
+        local price = station:getEffectiveFillTypePrice(fillType)
+        if type(price) == "number" and price > 0 then
             return price, "station price"
         end
     end

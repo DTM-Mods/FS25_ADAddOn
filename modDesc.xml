@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<modDesc descVersion="113">
+<modDesc descVersion="115">
     <author>PropaineX</author>
-    <version>1.6.4.0</version>
+    <version>1.6.4.1</version>
     <title>
         <en>ADAddOn (AutoDrive Add-On)</en>
     </title>
@@ -15,7 +15,25 @@ Adds a green bar with an ON/OFF button and a mode menu on top of the AutoDrive w
 - Bale Collection: with a Courseplay bale collector, AutoDrive takes each full load to the 2nd target, drives back to the field (1st target) and Courseplay carries on until the field is clear.
 - Top It Off: moves the selected fill type from the loading point to the tip until the tip is full. Each load is only what the tip still takes, so it never overfills. If the loading point runs out it says "Out of ...". If the tip gets full from somewhere else before the truck tips, it says "Overfill detected."
 
-When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.]]></en>
+When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.
+
+Changelog 1.6.4.1:
+- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
+- Errors are no longer hidden: they show in the log.]]></en>
+        <de><![CDATA[Add-on für AutoDrive (FS25_AutoDrive erforderlich).
+
+Fügt oben im AutoDrive-Fenster eine grüne Leiste mit einem EIN/AUS-Schalter und einem Modus-Menü hinzu. Nutze den AutoDrive-Modus "Abholen und Liefern" wie gewohnt: das 1. Ziel ist der Ladeort, das 2. Ziel ist der Lieferort. Wähle einen Modus und schalte den Schalter auf EIN:
+
+- Fill Robot $$$: setze das 2. Ziel an einen Stall mit Fütterungsroboter. Er füllt jeden Behälter des Roboters und wählt dabei das Futter und den Ort, an dem es geholt wird, genau so viel, wie jeder Behälter noch aufnimmt.
+- Milk Transport: bringt alle Milchsorten aus dem Stall (Kuh, Büffel, Ziege...) zum 2. Ziel, eine Sorte pro Ladung.
+- Bale Collection: mit einem Courseplay-Ballensammler bringt AutoDrive jede volle Ladung zum 2. Ziel, fährt zurück aufs Feld (1. Ziel) und Courseplay macht weiter, bis das Feld leer ist.
+- Top It Off: bringt die gewählte Fruchtsorte vom Ladeort zum Abladeort, bis dieser voll ist. Jede Ladung ist nur so groß, wie der Abladeort noch aufnimmt, sodass er nie überfüllt wird. Geht dem Ladeort die Ware aus, erscheint "Out of ...". Wird der Abladeort von anderer Seite voll, bevor der LKW ablädt, erscheint "Overfill detected."
+
+Wenn ein Auftrag endet, erledigt oder mit einer Meldung abgebrochen, hält AutoDrive an und der Schalter schaltet sich selbst AUS.
+
+Changelog 1.6.4.1:
+- Erfüllt die GIANTS-ModHub-Prüfungen (TestRunner): Texturen, Icon und modDesc auf den neuesten Stand gebracht.
+- Fehler werden nicht mehr versteckt und erscheinen im Log.]]></de>
     </description>
     <iconFilename>icon_ADAddOn.dds</iconFilename>
     <multiplayer supported="true"/>
