@@ -6,27 +6,39 @@
         <en>ADAddOn (AutoDrive Add-On)</en>
     </title>
     <description>
-        <en><![CDATA[Add-on for AutoDrive (FS25_AutoDrive required).
+        <en><![CDATA[Description: Adds new jobs to AutoDrive's "Pickup and Deliver" mode: filling feeding robots, milk transport, bale collection with Courseplay, topping off a tip, and refuel/repair trips.
+Hotkeys: none, everything is done with the mouse: the ON/OFF button and the mode menu on the green bar on top of the AutoDrive window.
+GitHub: https://github.com/DTM-Mods/FS25_ADAddOn
+
+Requires AutoDrive Overdrive (the FS25_AutoDrive mod in its AutoDrive Overdrive version); the original AutoDrive will not do. Courseplay is only needed for Bale Collection.
 
 Adds a green bar with an ON/OFF button and a mode menu on top of the AutoDrive window. Use AutoDrive's "Pickup and Deliver" mode as usual: the 1st target is where it loads, the 2nd target is where it delivers. Pick a mode, switch the button ON:
 
-- Fill Robot $$$: set the 2nd target at a barn with a feeding robot. It fills every bin of the robot, picking the feed and where to get it, exactly what each bin still takes.
+- Fill Robot - In Stock: set the 2nd target at a barn with a feeding robot. It fills every bin of the robot with feed from your own silos and productions, exactly what each bin still takes. It never buys: when a feed runs out it says so and goes on to the next bin.
+- Fill Robot $$$: the same, but when your farm has none of a feed left it buys it.
 - Milk Transport: moves all milk types from the barn (cow, buffalo, goat...) to the 2nd target, one type per load.
 - Bale Collection: with a Courseplay bale collector, AutoDrive takes each full load to the 2nd target, drives back to the field (1st target) and Courseplay carries on until the field is clear.
 - Top It Off: moves the selected fill type from the loading point to the tip until the tip is full. Each load is only what the tip still takes, so it never overfills. If the loading point runs out it says "Out of ...". If the tip gets full from somewhere else before the truck tips, it says "Overfill detected."
+- Refuel/Repair: drives to a workshop and a diesel refuel point, the closer one first, using AutoDrive's own repair and refuel trips. It refuels from your own diesel storage first, then a station of your farm that sells diesel, then the nearest diesel station. Anything already at 95 % condition or fuel is skipped. Afterwards it parks at the AutoDrive parking position if you set one. Diesel only for now.
 
 When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.
 
 Changelog 1.6.4.2:
 - Updated for the current game version (modDesc version 116).]]></en>
-        <de><![CDATA[Add-on für AutoDrive (FS25_AutoDrive erforderlich).
+        <de><![CDATA[Beschreibung: Fügt dem AutoDrive-Modus "Abholen und Liefern" neue Aufträge hinzu: Fütterungsroboter befüllen, Milchtransport, Ballen sammeln mit Courseplay, einen Abladeort auffüllen sowie Fahrten zum Tanken und Reparieren.
+Tastenkombinationen: keine, alles wird mit der Maus bedient: der EIN/AUS-Schalter und das Modus-Menü in der grünen Leiste oben im AutoDrive-Fenster.
+GitHub: https://github.com/DTM-Mods/FS25_ADAddOn
+
+Benötigt AutoDrive Overdrive (die Mod FS25_AutoDrive in ihrer Version AutoDrive Overdrive); das originale AutoDrive reicht nicht. Courseplay wird nur für Bale Collection gebraucht.
 
 Fügt oben im AutoDrive-Fenster eine grüne Leiste mit einem EIN/AUS-Schalter und einem Modus-Menü hinzu. Nutze den AutoDrive-Modus "Abholen und Liefern" wie gewohnt: das 1. Ziel ist der Ladeort, das 2. Ziel ist der Lieferort. Wähle einen Modus und schalte den Schalter auf EIN:
 
-- Fill Robot $$$: setze das 2. Ziel an einen Stall mit Fütterungsroboter. Er füllt jeden Behälter des Roboters und wählt dabei das Futter und den Ort, an dem es geholt wird, genau so viel, wie jeder Behälter noch aufnimmt.
+- Fill Robot - In Stock: setze das 2. Ziel an einen Stall mit Fütterungsroboter. Er füllt jeden Behälter des Roboters mit Futter aus deinen eigenen Silos und Produktionen, genau so viel, wie jeder Behälter noch aufnimmt. Er kauft nie: geht ein Futter aus, meldet er das und macht mit dem nächsten Behälter weiter.
+- Fill Robot $$$: genauso, aber wenn dein Hof von einem Futter nichts mehr hat, wird es gekauft.
 - Milk Transport: bringt alle Milchsorten aus dem Stall (Kuh, Büffel, Ziege...) zum 2. Ziel, eine Sorte pro Ladung.
 - Bale Collection: mit einem Courseplay-Ballensammler bringt AutoDrive jede volle Ladung zum 2. Ziel, fährt zurück aufs Feld (1. Ziel) und Courseplay macht weiter, bis das Feld leer ist.
 - Top It Off: bringt die gewählte Fruchtsorte vom Ladeort zum Abladeort, bis dieser voll ist. Jede Ladung ist nur so groß, wie der Abladeort noch aufnimmt, sodass er nie überfüllt wird. Geht dem Ladeort die Ware aus, erscheint "Out of ...". Wird der Abladeort von anderer Seite voll, bevor der LKW ablädt, erscheint "Overfill detected."
+- Refuel/Repair: fährt zu einer Werkstatt und einer Diesel-Tankstelle, die nähere zuerst, mit den eigenen Reparatur- und Tankfahrten von AutoDrive. Getankt wird zuerst aus deinem eigenen Diesellager, dann an einer Verkaufsstelle deines Hofs, die Diesel verkauft, dann an der nächsten Diesel-Tankstelle. Was schon bei 95 % Zustand oder Tankfüllung ist, wird übersprungen. Danach parkt das Fahrzeug an der AutoDrive-Parkposition, falls du eine gesetzt hast. Vorerst nur Diesel.
 
 Wenn ein Auftrag endet, erledigt oder mit einer Meldung abgebrochen, hält AutoDrive an und der Schalter schaltet sich selbst AUS.
 
