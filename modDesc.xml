@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="116">
     <author>PropaineX</author>
-    <version>1.6.4.2</version>
+    <version>1.6.4.3</version>
     <title>
         <en>ADAddOn (AutoDrive Add-On)</en>
     </title>
@@ -23,8 +23,8 @@ Adds a green bar with an ON/OFF button and a mode menu on top of the AutoDrive w
 
 When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.
 
-Changelog 1.6.4.2:
-- Updated for the current game version (modDesc version 116).]]></en>
+Changelog 1.6.4.3:
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).]]></en>
         <de><![CDATA[Beschreibung: Fügt dem AutoDrive-Modus "Abholen und Liefern" neue Aufträge hinzu: Fütterungsroboter befüllen, Milchtransport, Ballen sammeln mit Courseplay, einen Abladeort auffüllen sowie Fahrten zum Tanken und Reparieren.
 Tastenkombinationen: keine, alles wird mit der Maus bedient: der EIN/AUS-Schalter und das Modus-Menü in der grünen Leiste oben im AutoDrive-Fenster.
 GitHub: https://github.com/DTM-Mods/FS25_ADAddOn
@@ -42,8 +42,8 @@ Fügt oben im AutoDrive-Fenster eine grüne Leiste mit einem EIN/AUS-Schalter un
 
 Wenn ein Auftrag endet, erledigt oder mit einer Meldung abgebrochen, hält AutoDrive an und der Schalter schaltet sich selbst AUS.
 
-Changelog 1.6.4.2:
-- An die aktuelle Spielversion angepasst (modDesc-Version 116).]]></de>
+Changelog 1.6.4.3:
+- Beschreibung im ModHub-Aufbau von GIANTS (Kategorie, Preis, Unterhalt bzw. Tasten oben).]]></de>
     </description>
     <iconFilename>icon_ADAddOn.dds</iconFilename>
     <multiplayer supported="true"/>
