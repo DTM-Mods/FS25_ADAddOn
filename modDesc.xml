@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<modDesc descVersion="115">
+<modDesc descVersion="116">
     <author>PropaineX</author>
-    <version>1.6.4.1</version>
+    <version>1.6.4.2</version>
     <title>
         <en>ADAddOn (AutoDrive Add-On)</en>
     </title>
@@ -17,9 +17,8 @@ Adds a green bar with an ON/OFF button and a mode menu on top of the AutoDrive w
 
 When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.
 
-Changelog 1.6.4.1:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log.]]></en>
+Changelog 1.6.4.2:
+- Updated for the current game version (modDesc version 116).]]></en>
         <de><![CDATA[Add-on für AutoDrive (FS25_AutoDrive erforderlich).
 
 Fügt oben im AutoDrive-Fenster eine grüne Leiste mit einem EIN/AUS-Schalter und einem Modus-Menü hinzu. Nutze den AutoDrive-Modus "Abholen und Liefern" wie gewohnt: das 1. Ziel ist der Ladeort, das 2. Ziel ist der Lieferort. Wähle einen Modus und schalte den Schalter auf EIN:
@@ -31,9 +30,8 @@ Fügt oben im AutoDrive-Fenster eine grüne Leiste mit einem EIN/AUS-Schalter un
 
 Wenn ein Auftrag endet, erledigt oder mit einer Meldung abgebrochen, hält AutoDrive an und der Schalter schaltet sich selbst AUS.
 
-Changelog 1.6.4.1:
-- Erfüllt die GIANTS-ModHub-Prüfungen (TestRunner): Texturen, Icon und modDesc auf den neuesten Stand gebracht.
-- Fehler werden nicht mehr versteckt und erscheinen im Log.]]></de>
+Changelog 1.6.4.2:
+- An die aktuelle Spielversion angepasst (modDesc-Version 116).]]></de>
     </description>
     <iconFilename>icon_ADAddOn.dds</iconFilename>
     <multiplayer supported="true"/>
