@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Farming%20Simulator-25-2E6B4F" alt="Farming Simulator 25">
-  <img src="https://img.shields.io/badge/version-1.6.4.0-D9A441" alt="Version 1.6.4.0">
+  <img src="https://img.shields.io/badge/version-1.7.0.0-D9A441" alt="Version 1.7.0.0">
   <img src="https://img.shields.io/badge/multiplayer-supported-2E6B4F" alt="Multiplayer supported">
   <a href="https://github.com/DTM-Mods"><img src="https://img.shields.io/badge/DTM-Mods-143326" alt="DTM Mods"></a>
 </p>
@@ -35,7 +35,7 @@ Use AutoDrive's **Pickup and Deliver** mode as usual: the 1st target is where it
 - **Milk Transport:** moves every milk type from the barn (cow, buffalo, goat, mod milks) to the 2nd target, one type per load.
 - **Bale Collection:** with a Courseplay bale collector, AutoDrive takes each full load to the 2nd target, drives back to the field (1st target), and Courseplay carries on until the field is clear.
 - **Top It Off:** moves the selected fill type from the loading point to the tip until the tip is full. Each load is only what the tip still takes, so it never overfills. If the loading point runs out it says "Out of ...". If the tip gets full from somewhere else first, it says "Overfill detected."
-- **Refuel/Repair:** drives to a workshop and a diesel refuel point, the closer one first, using AutoDrive's own repair and refuel trips. It refuels from your own diesel storage first, then a station of your farm that sells diesel, then the nearest diesel station. Anything already at 95 % condition or fuel is skipped. Afterwards it parks at the AutoDrive parking position if you set one. Diesel only for now.
+- **Refuel/Repair:** drives to a diesel refuel point first, then to a workshop, using AutoDrive's own repair and refuel trips. It refuels from your own diesel storage first, then a station of your farm that sells diesel, then the nearest diesel station. Anything already at 95 % condition or fuel is skipped. Afterwards it parks at the AutoDrive parking position if you set one. Diesel only for now.
 
 When a job ends, finished or stopped with a message, AutoDrive stops and the button switches itself OFF.
 

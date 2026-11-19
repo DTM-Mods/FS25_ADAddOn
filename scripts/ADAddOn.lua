@@ -51,6 +51,41 @@ function ADAddOn.isOn(vehicle)
     return spec ~= nil and spec.isOn
 end
 
+-- is the unload target at a place the vehicle's farm owns? The unloading station nearest to the 2nd target
+-- (within 60 m, like best price) decides; no station near it counts as own, so best price stays off
+ADAddOn.OWN_TARGET_DISTANCE = 60
+function ADAddOn.isOwnTarget(vehicle)
+    local AD = ADAddOn.AD
+    local marker = vehicle.ad ~= nil and vehicle.ad.stateModule ~= nil and vehicle.ad.stateModule:getSecondMarker() or nil
+    local wayPoint = marker ~= nil and marker.id ~= nil and AD.ADGraphManager:getWayPointById(marker.id) or nil
+    if wayPoint == nil or g_currentMission == nil or g_currentMission.storageSystem == nil then
+        return true
+    end
+    local nearest, nearestDistance = nil, ADAddOn.OWN_TARGET_DISTANCE
+    for _, station in pairs(g_currentMission.storageSystem:getUnloadingStations()) do
+        local x, z = AD.ADBestPrice.getStationPosition(station)
+        if x ~= nil then
+            local distance = MathUtil.vector2Length(wayPoint.x - x, wayPoint.z - z)
+            if distance <= nearestDistance then
+                nearest, nearestDistance = station, distance
+            end
+        end
+    end
+    if nearest == nil then
+        return true
+    end
+    local placeable = nearest.owningPlaceable
+    local owner = placeable ~= nil and placeable.getOwnerFarmId ~= nil and placeable:getOwnerFarmId() or nil
+    local own = owner ~= nil and owner == vehicle:getOwnerFarmId()
+    local key = tostring(marker.id) .. (own and ":own" or ":sell")
+    if vehicle.adAddOnOwnTargetKey ~= key then
+        vehicle.adAddOnOwnTargetKey = key
+        ADAddOn.log(vehicle, "best price: target '%s' is %s ('%s', %d m)", tostring(marker.name),
+            own and "own (Top It Off, best price off)" or "a seller (best price allowed)", ADAddOn.nameOf(placeable), math.floor(nearestDistance))
+    end
+    return own
+end
+
 function ADAddOn:loadMap(name)
     -- AutoDrive lives in its own mod environment
     ADAddOn.AD = FS25_AutoDrive
@@ -72,10 +107,11 @@ function ADAddOn:loadMap(name)
         return
     end
 
-    -- add-on button on: ignore AutoDrive's best price unloading setting, whatever it says
+    -- add-on button on: best price is off when the unload target is a place the farm owns (its production, BGA,
+    -- silo): Top It Off fills it. A selling point the farm doesn't own keeps AutoDrive's best price setting.
     if AD.ADBestPrice ~= nil and AD.ADBestPrice.getMode ~= nil then
         AD.ADBestPrice.getMode = Utils.overwrittenFunction(AD.ADBestPrice.getMode, function(vehicle, superFunc)
-            if ADAddOn.isOn(vehicle) then
+            if ADAddOn.isOn(vehicle) and ADAddOn.isOwnTarget(vehicle) then
                 return AD.ADBestPrice.OFF
             end
             return superFunc(vehicle)
