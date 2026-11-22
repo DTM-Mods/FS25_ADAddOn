@@ -500,7 +500,11 @@ function ADAddOn.getAllLoadedTypes(vehicle)
     for _, v in ipairs(vehicle:getChildVehicles()) do
         if v.spec_fillUnit ~= nil and v.getFillUnits ~= nil then
             for index, fillUnit in ipairs(v:getFillUnits()) do
-                if fillUnit.fillLevel >= ADAddOn.MIN_AMOUNT and not ADAddOn.isConsumerFillUnit(v, index) and fillUnit.fillType ~= nil and fillUnit.fillType ~= FillType.UNKNOWN and not seen[fillUnit.fillType] then
+                if fillUnit.fillLevel >= ADAddOn.MIN_AMOUNT
+                    and not ADAddOn.isConsumerFillUnit(v, index)
+                    and fillUnit.fillType ~= nil
+                    and fillUnit.fillType ~= FillType.UNKNOWN
+                    and not seen[fillUnit.fillType] then
                     seen[fillUnit.fillType] = true
                     table.insert(list, fillUnit.fillType)
                 end
@@ -2248,7 +2252,10 @@ function ADAddOn.planTrip(mode)
     if stateModule:getCanRestartHelper() or ADAddOn.AD.AutoDrive:getIsCPActive(vehicle) then
         -- AutoDrive's helper button (Courseplay / AI) is on: AutoDrive hands this run to that helper
         warnOnce(vehicle, "helper", "AutoDrive's helper button (Courseplay / AI) is on for this vehicle, so the load is not limited. Switch it off for Fill Robot / Milk Transport.")
-        ADAddOn.log(vehicle, "not planned: AutoDrive helper restart on (%s), Courseplay active (%s)", tostring(stateModule:getCanRestartHelper()), tostring(ADAddOn.AD.AutoDrive:getIsCPActive(vehicle)))
+        ADAddOn.log(vehicle,
+            "not planned: AutoDrive helper restart on (%s), Courseplay active (%s)",
+            tostring(stateModule:getCanRestartHelper()),
+            tostring(ADAddOn.AD.AutoDrive:getIsCPActive(vehicle)))
         return nil
     end
 

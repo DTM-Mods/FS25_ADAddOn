@@ -31,7 +31,10 @@ end
 function ADAddOnSpec.initSpecialization()
     local schemaSavegame = Vehicle.xmlSchemaSavegame
     schemaSavegame:register(XMLValueType.BOOL, "vehicles.vehicle(?)." .. ADAddOnSpec.SPEC_NAME .. "#isOn", "ADAddOn is switched on", false)
-    schemaSavegame:register(XMLValueType.INT, "vehicles.vehicle(?)." .. ADAddOnSpec.SPEC_NAME .. "#mode", "ADAddOn mode (1 fill robot $$$, 2 milk transport, 3 bale collection, 4 top it off, 5 fill robot in stock only, 6 repair/refill)", 1)
+    schemaSavegame:register(XMLValueType.INT,
+        "vehicles.vehicle(?)." .. ADAddOnSpec.SPEC_NAME .. "#mode",
+        "ADAddOn mode (1 fill robot $$$, 2 milk transport, 3 bale collection, 4 top it off, 5 fill robot in stock only, 6 repair/refill)",
+        1)
 end
 
 function ADAddOnSpec.registerFunctions(vehicleType)
